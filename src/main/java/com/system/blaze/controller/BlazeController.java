@@ -18,7 +18,7 @@ public class BlazeController {
     private BlazeServiceImpl blazeService;
 
     @PostMapping(path = "/transactionRiskDecision")
-    public ResponseEntity<String> getRisk(@RequestBody RiskRequest riskRequest) {
+    public ResponseEntity<?> getRisk(@RequestBody RiskRequest riskRequest) {
         String senderNameCheck = blazeService.checkSender(riskRequest.getCustomer());
         String receiverNameCheck = blazeService.checkReceiver(riskRequest.getReceiver());
         return new ResponseEntity<>(senderNameCheck + "\n" + receiverNameCheck, HttpStatus.OK);
