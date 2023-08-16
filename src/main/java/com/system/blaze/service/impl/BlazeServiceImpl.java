@@ -21,7 +21,6 @@ public class BlazeServiceImpl implements BlazeService {
 
     public String checkReceiver(Receiver receiver) {
         return "Receiver " + checkLastName(receiver.getName());
-//        checkLastName(receiver.getName());
     }
 
     private String checkLastName(Name name) {
@@ -31,7 +30,7 @@ public class BlazeServiceImpl implements BlazeService {
 
         String lastName = name.getLastName();
         for (String n : names) {
-            if (lastName.equals(n)) {
+            if (lastName.toLowerCase().equals(n)) {
                 throw new BlacklistException(name.getLastName() + " has been blacklisted");
             }
         }
