@@ -29,7 +29,7 @@ public class BlazeServiceImpl implements BlazeService {
 
         String lastName = name.getLastName();
         for (String n : names) {
-            if (lastName.equals(n)) {
+            if (lastName.toLowerCase().equals(n)) {
                 return "last name is blacklisted";
             }
         }
