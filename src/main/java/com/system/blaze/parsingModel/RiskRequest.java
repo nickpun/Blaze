@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class WholeModel {
+public class RiskRequest {
     private Customer customer;
+    private Receiver receiver;
 }
