@@ -1,5 +1,6 @@
 package com.system.blaze.service.impl;
 
+import com.system.blaze.customException.BlacklistException;
 import com.system.blaze.parsingModel.Customer;
 import com.system.blaze.parsingModel.Name;
 import com.system.blaze.parsingModel.Receiver;
@@ -20,6 +21,7 @@ public class BlazeServiceImpl implements BlazeService {
 
     public String checkReceiver(Receiver receiver) {
         return "Receiver " + checkLastName(receiver.getName());
+//        checkLastName(receiver.getName());
     }
 
     private String checkLastName(Name name) {
@@ -30,7 +32,7 @@ public class BlazeServiceImpl implements BlazeService {
         String lastName = name.getLastName();
         for (String n : names) {
             if (lastName.equals(n)) {
-                return "last name is blacklisted";
+                throw new BlacklistException(name.getLastName() + " has been blacklisted");
             }
         }
         return "last name is okay";
