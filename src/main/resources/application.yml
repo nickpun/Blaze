@@ -1,5 +1,5 @@
 blaze:
-  sendAmountLimit: 10000
+  sendAmountLimit: 100000 # last two digits are cents
 
   blackListedPeople:
     lastnames:
