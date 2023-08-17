@@ -1,5 +1,6 @@
 package com.system.blaze.exceptionHandler;
 
+import com.system.blaze.customException.AmountException;
 import com.system.blaze.customException.BlacklistException;
 import com.system.blaze.customException.MoneyLaunderingException;
 import com.system.blaze.customRespond.CustomErrorRespond;
@@ -30,6 +31,14 @@ public class RestExceptionHandler {
 
     @ExceptionHandler
     public ResponseEntity<CustomErrorRespond> respondResponseEntity(MoneyLaunderingException e) {
+        CustomErrorRespond customErrorRespond =
+                CustomErrorRespond.builder().errorCode(map.get(e.getClass().getName())).message(e.getMessage()).build();
+        return new ResponseEntity<>(customErrorRespond, HttpStatus.OK);
+    }
+
+
+    @ExceptionHandler
+    public ResponseEntity<CustomErrorRespond> respondResponseEntity(AmountException e) {
         CustomErrorRespond customErrorRespond =
                 CustomErrorRespond.builder().errorCode(map.get(e.getClass().getName())).message(e.getMessage()).build();
         return new ResponseEntity<>(customErrorRespond, HttpStatus.OK);
