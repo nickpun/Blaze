@@ -7,16 +7,14 @@ import com.system.blaze.service.MoneyLaunderingService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 import java.util.Set;
 
 
 @Service
 public class MoneyLaunderingImp implements MoneyLaunderingService {
 
-    @Value("${blaze.MoneyLaundering}")
+    @Value("${blaze.MoneyLaundering.lastnames}")
     private Set<String> moneyLaunderingNames;
 
     public MoneyLaunderingImp() {
