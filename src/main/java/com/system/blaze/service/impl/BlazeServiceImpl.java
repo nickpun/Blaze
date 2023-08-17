@@ -9,6 +9,7 @@ import com.system.blaze.parsingModel.RiskRequest;
 import com.system.blaze.service.AmountService;
 import com.system.blaze.service.BlazeService;
 import com.system.blaze.service.MoneyLaunderingService;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,14 @@ public class BlazeServiceImpl implements BlazeService {
 
     @Value("${blaze.blackListedpeople}")
     private List<String> blackListedNames;
+//
+//    @Value("${test2}")
+//    private String str;
+//
+//    @PostConstruct
+//    void func() {
+//        System.out.println(str);
+//    }
 
     private MoneyLaunderingService moneyLaunderingService;
     private AmountService amountService;

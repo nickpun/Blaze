@@ -7,3 +7,15 @@ blaze:
   MoneyLaundering:
     Martin, Roy
 
+
+
+
+#relativePath: com.system.blaze.customException
+#
+#test2: "${relativePath}.BlacklistException"
+
+
+
+#error_map:
+#    com.system.blaze.customException:
+#      {BlacklistException: "0010", MoneyLaunderingException : "0011"}
