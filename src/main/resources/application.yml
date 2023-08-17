@@ -1,11 +1,13 @@
 blaze:
   sendAmountLimit: 100000 # last two digits are cents
 
-  blackListedpeople:
-    Smith, Brown, Tremblay
+  blackListedPeople:
+    lastnames:
+      Smith, Brown, Tremblay
 
   MoneyLaundering:
-    Martin, Roy
+    lastnames:
+      Martin, Roy
 
 
 
