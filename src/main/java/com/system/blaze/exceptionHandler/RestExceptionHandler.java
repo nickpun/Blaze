@@ -54,7 +54,7 @@ public class RestExceptionHandler {
     @ExceptionHandler
     public ResponseEntity<CustomErrorRespond> respondResponseEntity(AmountException e) {
         CustomErrorRespond customErrorRespond =
-                CustomErrorRespond.builder().errorCode(map.get(e.getClass().getName())).message(e.getMessage()).build();
+                CustomErrorRespond.builder().errorCode(error_map.get(e.getClass().getName())).message(e.getMessage()).build();
         return new ResponseEntity<>(customErrorRespond, HttpStatus.OK);
     }
 
