@@ -29,10 +29,9 @@ public class BlazeServiceImpl implements BlazeService {
         this.blackListCheckService = blackListCheckService;
     }
 
-    public String checkRisk(RiskRequest riskRequest) {
+    public void checkRisk(RiskRequest riskRequest) {
         blackListCheckService.checkBlackedList(riskRequest);
         moneyLaunderingService.check(riskRequest);
         amountService.checkAmount(riskRequest.getPaymentDetails());
-        return "";
     }
 }
