@@ -15,7 +15,8 @@ public class AmountServiceImpl implements AmountService {
     public void checkAmount(PaymentDetails paymentDetails) {
         double sendAmount = paymentDetails.getSendAmount();
         if (sendAmount > limit) {
-            throw new AmountException("Send amount of " + sendAmount + " exceeds $" + limit + "limit");
+            throw new AmountException("Send amount of $" + String.format("%.2f", sendAmount/10)
+                    + " exceeds $" + String.format("%.2f", limit/10) + " limit");
         }
     }
 }
