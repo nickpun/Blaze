@@ -1,4 +1,6 @@
 blaze:
+  sendAmountLimit: 10000
+
   blackListedpeople:
     Smith, Brown, Tremblay
 
