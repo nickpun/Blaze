@@ -1,11 +1,13 @@
 package com.system.blaze.service.impl;
 
+import com.system.blaze.customException.InvalidCountryException;
 import com.system.blaze.customException.SanctionedCountryException;
 import com.system.blaze.parsingModel.RiskRequest;
 import com.system.blaze.service.CountryService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.util.Locale;
 import java.util.Set;
 
 @Service
@@ -20,18 +22,25 @@ public class CountryServiceImpl implements CountryService {
     }
 
     private void checkSendingCountry(String country) {
-        checkSanctionedCountry("from", country);
+        checkValidCountry("Sender", country);
     }
 
     private void checkReceivingCountry(String country) {
-        checkSanctionedCountry("to", country);
-    }
+        checkValidCountry("Receiver", country);
 
-    private void checkSanctionedCountry(String msg, String country) {
         sanctionedCountries.forEach(sanctionedCountry -> {
             if (sanctionedCountry.equalsIgnoreCase(country)) {
-                throw new SanctionedCountryException("Cannot send money " + msg + " " + country + " due to sanctions");
+                throw new SanctionedCountryException("Cannot send money to "
+                        + new Locale("", country.toUpperCase()).getDisplayCountry()
+                        + " (" + country + ") due to sanctions");
             }
         });
+    }
+
+    private void checkValidCountry(String countryType, String country) {
+        Set<String> countries = Set.of(Locale.getISOCountries());
+        if (!countries.contains(country.toUpperCase())) {
+            throw new InvalidCountryException(countryType + " country " + country + " is not a valid country code");
+        }
     }
 }
