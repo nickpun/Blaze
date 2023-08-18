@@ -1,7 +1,8 @@
 package com.system.blaze.service;
 
 import com.system.blaze.parsingModel.RiskRequest;
+import org.springframework.http.ResponseEntity;
 
 public interface BlazeService {
-    void checkRisk(RiskRequest riskRequest);
+    ResponseEntity<?> checkRisk(RiskRequest riskRequest);
 }
