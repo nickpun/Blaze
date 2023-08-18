@@ -11,4 +11,5 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Receiver {
     private Name name;
+    private Address address;
 }
