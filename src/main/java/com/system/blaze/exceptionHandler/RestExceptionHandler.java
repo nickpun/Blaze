@@ -7,6 +7,7 @@ import com.system.blaze.customException.SanctionedCountryException;
 import com.system.blaze.customRespond.CustomErrorRespond;
 import jakarta.annotation.PostConstruct;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,7 @@ import java.util.Map;
 @ControllerAdvice
 @ConfigurationProperties("")
 @Data
+@Slf4j
 public class RestExceptionHandler {
 
 //    @Value("#{${errorcode}}")
@@ -28,9 +30,8 @@ public class RestExceptionHandler {
 
     @PostConstruct
     void func() {
-        error_map.forEach((k, y) -> System.out.println("key " + k + " val " + y) );
-        System.out.println(error_map.size());
-//        System.out.println(test2);
+        error_map.forEach((k, y) -> log.debug("key " + k + " val " + y) );
+        log.debug("" + error_map.size());
     }
 
 
