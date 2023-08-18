@@ -12,8 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class BlazeController {
 
-    @Autowired
     private BlazeServiceImpl blazeService;
+
+    @Autowired
+    public BlazeController(BlazeServiceImpl blazeService) {
+        this.blazeService = blazeService;
+    }
 
     @PostMapping(path = "/transactionRiskDecision")
     public ResponseEntity<?> getRisk(@RequestBody RiskRequest riskRequest) {

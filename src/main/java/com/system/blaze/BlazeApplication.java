@@ -8,7 +8,6 @@ import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
 @PropertySource(value = { "classpath:errorCode.properties" })
-@EnableConfigurationProperties(value = {RestExceptionHandler.class})
 public class BlazeApplication {
 
 	public static void main(String[] args) {
