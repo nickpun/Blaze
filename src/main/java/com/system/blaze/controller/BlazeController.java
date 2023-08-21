@@ -21,8 +21,7 @@ public class BlazeController {
 
     @PostMapping(path = "/transactionRiskDecision")
     public ResponseEntity<?> getRisk(@RequestBody RiskRequest riskRequest) {
-        blazeService.checkRisk(riskRequest);
-        return new ResponseEntity<>("risk okay", HttpStatus.OK);
+        return blazeService.checkRisk(riskRequest);
     }
 
     @PostMapping( "/sendMoneyValidation")
