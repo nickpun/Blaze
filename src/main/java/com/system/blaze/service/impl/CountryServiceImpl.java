@@ -37,8 +37,15 @@ public class CountryServiceImpl implements CountryService {
         });
     }
 
-    // See list of ISO 3166 country codes for valid country codes
-    // https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes
+
+    /**
+     *
+     * See list of ISO 3166 country codes for valid country codes
+     * <a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">...</a>
+     * @param countryType could be sender or receiver country
+     * @param country passed in from rest api
+     */
+
     private void checkValidCountry(String countryType, String country) {
         Set<String> countries = Set.of(Locale.getISOCountries());
         if (!countries.contains(country.toUpperCase())) {
