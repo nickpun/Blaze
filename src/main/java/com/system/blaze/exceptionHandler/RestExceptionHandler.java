@@ -1,10 +1,7 @@
 package com.system.blaze.exceptionHandler;
 
-import com.system.blaze.customException.AmountException;
-import com.system.blaze.customException.BlacklistException;
-import com.system.blaze.customException.MoneyLaunderingException;
-import com.system.blaze.customException.SanctionedCountryException;
-import com.system.blaze.customRespond.CustomRespond;
+import com.system.blaze.customException.*;
+import com.system.blaze.customRespond.CustomErrorRespond;
 import jakarta.annotation.PostConstruct;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -65,4 +62,10 @@ public class RestExceptionHandler {
         return new ResponseEntity<>(customRespond, HttpStatus.OK);
     }
 
+    @ExceptionHandler
+    public ResponseEntity<CustomErrorRespond> respondResponseEntity(InvalidCountryException e) {
+        CustomErrorRespond customErrorRespond =
+                CustomErrorRespond.builder().errorCode(error_map.get(e.getClass().getName())).message(e.getMessage()).build();
+        return new ResponseEntity<>(customErrorRespond, HttpStatus.OK);
+    }
 }
