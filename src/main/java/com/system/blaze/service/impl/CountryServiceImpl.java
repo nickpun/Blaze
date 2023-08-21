@@ -45,7 +45,6 @@ public class CountryServiceImpl implements CountryService {
      * @param countryType could be sender or receiver country
      * @param country passed in from rest api
      */
-
     private void checkValidCountry(String countryType, String country) {
         Set<String> countries = Set.of(Locale.getISOCountries());
         if (!countries.contains(country.toUpperCase())) {
