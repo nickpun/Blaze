@@ -3,9 +3,14 @@ package com.system.blaze;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 
 @SpringBootApplication
-@PropertySource(value = {"classpath:customCode.properties"})
+
+@PropertySources({
+		@PropertySource("classpath:customCode.properties"),
+		@PropertySource("classpath:checkLists.properties")
+})
 public class BlazeApplication {
 
 	public static void main(String[] args) {
