@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/blaze")
+@RequestMapping("/risk")
 public class BlazeController {
 
     private BlazeServiceImpl blazeService;
@@ -21,7 +21,7 @@ public class BlazeController {
         this.blazeService = blazeService;
     }
 
-    @PostMapping(path = "/risk")
+    @PostMapping
     public ResponseEntity<?> getRisk(@RequestBody RiskRequest riskRequest) {
         return blazeService.checkRisk(riskRequest);
     }
